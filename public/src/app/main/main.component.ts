@@ -10,6 +10,7 @@ import { HttpService } from '../http.service';
 })
 
 export class MainComponent implements OnInit {
+  authors: any;
 
   constructor(
     private _httpService: HttpService,
@@ -17,9 +18,19 @@ export class MainComponent implements OnInit {
     private _router: Router
   ) { }
 
+  deleteAuthor(id){
+    this._httpService.destroyAuthor(id).subscribe((author)=>{
+      this.fetchAuthors();
+    });
+  }
+
   ngOnInit() {
-    this._route.params.subscribe((params: Params) => {
-        console.log(params['id'])
+    this.fetchAuthors();
+  }
+
+  fetchAuthors() {
+    this._httpService.getAuthors().subscribe((authors)=>{
+      this.authors = authors;
     });
   }
 }

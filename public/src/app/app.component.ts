@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { HttpService } from './http.service';
 
@@ -8,11 +9,14 @@ import { HttpService } from './http.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'public';
+  title = 'Authors and Quotes';
 
-  constructor(private _httpService: HttpService){}
+  constructor(
+    private _httpService: HttpService,
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) { }
 
   ngOnInit(){
-    console.log("something");
   }
 }

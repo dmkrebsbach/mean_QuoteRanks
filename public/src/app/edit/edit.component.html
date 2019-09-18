@@ -1,0 +1,13 @@
+<div class="container-vertical">
+    <a [routerLink]="['/main']">Home</a>
+    <p>Edit this author</p>
+    <form class="subcontainer" (submit)="editAuthor()" method="post">
+        <label>First Name:</label><br>
+        <input type="text" name="author.firstName" [(ngModel)]="author.firstName"><br><br>
+        <label>Last Name:</label><br>
+        <input type="text" name="author.lastName" [(ngModel)]="author.lastName"><br><br>
+        <label>Description:</label><br>
+        <textarea name="author.description" [(ngModel)]="author.description">{{author.description}}</textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>

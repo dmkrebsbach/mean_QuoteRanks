@@ -1,0 +1,8 @@
+<a class="btn-box btn blue" [routerLink]="['/author']">Home</a> <!--this route should match the routes in the app-routing.module.ts file -->
+<h3>Provide a quote by {{author.firstName}} {{author.lastName}}</h3>
+<form class="subcontainer" (submit)="createQuote()" method="post">
+    <label>Quote
+        <input type="text" name="content" [(ngModel)]="newQuote.content" required minlength="10" #content="ngModel">
+    </label>
+    <input class="btn green" type="submit" value="Submit">
+</form>

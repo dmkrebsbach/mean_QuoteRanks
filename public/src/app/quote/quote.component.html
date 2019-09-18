@@ -1,0 +1,22 @@
+<div class="btn-box">
+    <a class="btn blue" [routerLink]="['/author']">Home</a> <!--this route should match the routes in the app-routing.module.ts file -->
+    <br><br>
+    <a class="btn blue" [routerLink]="['/newquote/', author._id]">Add a quote</a> <!--this route should match the routes in the app-routing.module.ts file -->
+</div>
+<h3>Quotes by {{author.firstName}} {{author.lastName}}</h3>
+<table>
+    <tr>
+        <th>Quote</th>
+        <th>Votes</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let quote of author.quotes">
+        <th>{{quote.content}}</th>
+        <th>{{quote.votes}}</th>
+        <th>
+            <button (click)="addVote(quote, 1)">Vote up</button> <!--this route should match the routes in the app-routing.module.ts file -->
+            <button (click)="addVote(quote, -1)">Vote down</button> <!--this route should match the routes in the app-routing.module.ts file -->
+            <button (click)="deleteQuote(quote._id)">Delete</button>
+        </th>
+    </tr>
+</table>

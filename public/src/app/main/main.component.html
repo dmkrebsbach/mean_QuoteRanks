@@ -1,1 +1,19 @@
-<p>main works!</p>
+<div class="container-vertical">
+    <a [routerLink]="['/newauthor']">Add an author</a> <!--this route should match the routes in the app-routing.module.ts file -->
+    <p>We have quotes by: </p>
+
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Actions Available</th>
+        </tr>
+        <tr *ngFor="let author of authors">
+            <th>{{author.firstName}} {{author.lastName}}</th>
+            <th>
+                <button [routerLink]="['/author/', author._id]">View Quotes</button> <!--this route should match the routes in the app-routing.module.ts file -->
+                <button [routerLink]="['/authors/edit/', author._id]">Edit</button> <!--this route should match the routes in the app-routing.module.ts file -->
+                <button (click)="deleteAuthor(author._id)">Delete</button>
+            </th>
+        </tr>
+    </table>
+</div>
